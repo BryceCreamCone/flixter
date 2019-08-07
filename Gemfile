@@ -7,6 +7,12 @@ gem 'bootstrap', '~> 4.0.0'
 # JQuery and Popper.js required for bootstrap (Popper.js in Application.js)
 gem 'jquery-rails'
 
+# Simple form
+gem 'simple_form'
+
+# Devise for User Authenication
+gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
