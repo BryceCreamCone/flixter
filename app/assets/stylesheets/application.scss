@@ -13,6 +13,7 @@
  */
 
  @import "bootstrap";
+ @import "static_pages";
 
  .navbar {
    font-family: 'Ubuntu', sans-serif;
@@ -25,3 +26,7 @@
    font-family: 'Ubuntu', sans-serif;
    font-weight: 300;
  }
+
+ h1, h2, h3, h4, h5, h6, .navbar {
+  margin: 0;
+}
