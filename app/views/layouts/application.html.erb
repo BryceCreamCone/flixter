@@ -11,35 +11,53 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand"><%= link_to 'Flixter', root_path %></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="fase" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div id="flex-content-container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand"><%= link_to 'Flixter', root_path %></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="fase" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-link" href="#">All Courses ></li>
-      </ul>
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to 'My Profile <|', user_path(current_user), class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to '|> Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'Sign In <|', new_user_session_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to '|> Sign Up', new_user_registration_path, class: 'nav-link' %>
-          </li>
-        <% end %>
-      </ul>      
-    </div>
-  </nav>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-link" href="#">All Courses ></li>
+        </ul>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'My Profile <|', user_path(current_user), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '|> Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign In <|', new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '|> Sign Up', new_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>      
+      </div>
+    </nav>
+      <% if notice.present? %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
+
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
     <%= yield %>
+  </div>
+
+
+  <footer class="footer-sticky">
+    <b>Footer Here</b>
+    <br />
+    <%= link_to 'Link', '#' %>    
+  </footer>
+      
+
   </body>
 </html>
