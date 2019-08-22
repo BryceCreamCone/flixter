@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '>= 4.3.1'
 # JQuery and Popper.js required for bootstrap (Popper.js in Application.js)
 gem 'jquery-rails'
 
