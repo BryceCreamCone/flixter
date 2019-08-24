@@ -17,9 +17,9 @@
     <li>
     <%=section.title%>
 
-      <ul class="row float-right">
+      <ul class="float-right">
         <% section.lessons.each do |lesson| %>
-        <li>
+        <li class="row">
           <b><%=lesson.title%></b>
           -
           <%=lesson.subtitle%>
