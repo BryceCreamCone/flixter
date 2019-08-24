@@ -1,10 +1,12 @@
 <br />
-<div class="booyah-box">
+<div class="booyah-box feature">
   <h1>Add A New Course</h1>
-  <%= simple_form_for @section, url: instructor_courses_path do |f| %>
+  <%= simple_form_for @course,
+  url: instructor_courses_path do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :cost %>
+    <%= f.input :image, as: :file %>
     <br />
     <%= f.submit "Create", class: 'btn btn-primary' %>
     <br />
