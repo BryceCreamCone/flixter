@@ -15,12 +15,13 @@ gem 'devise'
 
 # Photo and Video Uploading
 gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
+gem 'carrierwave-aws'
 
-gem 'fog-aws'
 
 gem 'figaro'
 
-gem 'mini_magick'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
