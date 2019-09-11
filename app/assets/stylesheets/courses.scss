@@ -1,0 +1,27 @@
+h1, h3 {
+  text-align: center;
+}
+
+div.section.col-sm {
+  .row {
+    h3 {
+      padding: 10px;
+    }
+    h6 {
+      text-align: center;
+    }
+    hr {
+      height: 3px;
+    }
+    .lesson {
+      background: #000;
+      box-shadow: inset 0 0 2px #FFF;
+      border-radius: 5%;
+      li {
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+      }
+    }
+  }
+}
