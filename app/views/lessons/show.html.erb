@@ -1,9 +1,23 @@
 <br />
-<div class="booyah-box col-10 offset-1 feature">
-  <h1><%= current_lesson.title %></h1>
-  <p>
-    <%= current_lesson.subtitle %>
-  </p>
-
-  <%= link_to 'Video', current_lesson.video.to_s %>
-</div>
+<body>
+  <div class="booyah-box col-10 offset-1 feature">
+    <h1><%= current_lesson.title %></h1>
+    <p>
+      <%= current_lesson.subtitle %>
+    </p>
+    <video id='my-video' 
+    class='video-js vjs-big-play-centered vjs-fluid' 
+    poster="<%= image_path('black.png') %>" 
+    controls preload='auto' 
+    width='640' height='264' 
+    data-setup='{}'>
+      <source src="<%= current_lesson.video %>" type='video/mp4'>
+      <noscript>
+        <p class='vjs-no-js'>
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+        </p>
+      </noscript>
+    </video>
+  </div>
+</body>
