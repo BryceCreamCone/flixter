@@ -1,3 +1,13 @@
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
 <br />
 <div class="booyah-box col-10 offset-1 feature">
   <h1><%= @course.title %></h1>
@@ -14,14 +24,17 @@
       instructor_course_path(@course),
       class: 'btn btn-danger btn-large'%>
       <% end %><br /><br />
-
-      <% if current_user && current_user.enrolled_in?(@course) %>
-        <h3 class="badge badge-info">You Have Enrolled</h3>
-      <% else %>
-        <%= link_to 'Enroll',
-        course_enrollments_path(@course),
+      <% if not user_signed_in? %>
+        <%= link_to 'Sign In to Enroll',
+        user_session_path(current_user),
         class: 'btn btn-primary',
         method: :post %>
+      <% elsif current_user && current_user.enrolled_in?(@course) %>
+        <h3 class="badge badge-info">You Have Enrolled</h3>
+      <% else %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Enroll
+        </button>
       <% end %>
     </div><br /><br />
 
@@ -58,5 +71,97 @@
       </div>
       <br /><br />
     <% end %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content booyah-box">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Please Enter Your Payment Method</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/courses/<%=@course.id%>/enrollments" method="post" id="payment-form" data-remote="true">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+          <div class="form-row">
+            <div id="card-element"></div>
+            <div id="card-errors" role="alert"></div>
+          </div>
+          <button>Submit Payment</button>
+        </form>
+            <script type="text/javascript">
+            // Create a Stripe client
+
+            var stripe = Stripe($('meta[name="stripe-key"]').attr('content'));
+
+            // Create an instance of Elements
+            var elements = stripe.elements();
+
+            // Custom styling can be passed to options when creating an Element.
+            // (Note that this demo uses a wider set of styles than the guide below.)
+            var style = {
+              base: {
+                color: '#32325d',
+                lineHeight: '24px',
+                fontFamily: 'Helvetica Neue',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                  color: '#aab7c4'
+                }
+              },
+              invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+              }
+            };
+
+            // Create an instance of the card Element
+            var card = elements.create('card', {style: style});
+
+            // Add an instance of the card Element into the `card-element` <div>
+            card.mount('#card-element');
+
+            // Handle real-time validation errors from the card Element.
+            card.addEventListener('change', function(event) {
+              const displayError = document.getElementById('card-errors');
+              if (event.error) {
+                displayError.textContent = event.error.message;
+              } else {
+                displayError.textContent = '';
+              }
+            });
+
+            // Handle form submission
+            var form = document.getElementById('payment-form');
+            form.addEventListener('submit', function(event) {
+              event.preventDefault();
+
+              stripe.createToken(card).then(function(result) {
+                if (result.error) {
+                  // Inform the user if there was an error
+                  var errorElement = document.getElementById('card-errors');
+                  errorElement.textContent = result.error.message;
+                  console.log(result.error.message);
+                } else {
+                  // Insert the token ID into the form so it gets submitted to the server
+                  var form = document.getElementById('payment-form');
+                  var hiddenInput = document.createElement('input');
+                  hiddenInput.setAttribute('type', 'hidden');
+                  hiddenInput.setAttribute('name', 'stripeToken');
+                  hiddenInput.setAttribute('value', result.token.id);
+                  form.appendChild(hiddenInput);
+                  // Submit the form
+                  form.submit();
+                }
+              });
+            });
+            </script>  
+      </div>
+    </div>
   </div>
 </div>

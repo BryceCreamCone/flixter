@@ -9,6 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700&display=swap" rel="stylesheet">
     <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
   <body>
