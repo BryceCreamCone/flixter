@@ -38,16 +38,12 @@ h1, h2, h3, h4, h5, h6, .navbar {
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   padding: 10px;
   margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
   h1, h2 {
     margin: 10px;
   }
-}
-
-.feature {
-  width: 100%;
-  padding-left: 2%;
-  padding-right: 5%;
-  color: white;
 }
 
 .footer-sticky {
