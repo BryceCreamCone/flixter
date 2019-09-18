@@ -23,7 +23,7 @@
     <%=section.title%>
 
       <ul class="float-right">
-        <% section.lessons.each do |lesson| %>
+        <% section.lessons.rank(:row_order).each do |lesson| %>
         <li class="row">
           <b><%=lesson.title%></b>
           -
