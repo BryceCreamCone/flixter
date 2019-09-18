@@ -6,6 +6,7 @@ ruby '2.5.3'
 
 # JQuery and Popper.js required for bootstrap (Popper.js in Application.js)
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'bootstrap', '>= 4.3.1'
 
 
