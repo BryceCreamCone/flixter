@@ -9,7 +9,7 @@
 </div>
 
 <br />
-<div class="booyah-box col-10 offset-1">
+<div class="booyah-box col-10">
   <h1><%= @course.title %></h1>
   <%#= image_tag @course.image.url, class: 'img-fluid'%>
 
@@ -43,34 +43,33 @@
     </div>
   </div>
 
-  <div class="row container col-12">
-    <% @course.sections.each do |section| %>
-      <div class="section col-sm">
-      <div class="row booyah-box">
-        <div class="col-sm">
-          <h3>
-            <%=section.title%>
-          </h3><hr>
-          <h6>
-            (Section <%= section.id %>)
-          </h6>
-        </div>
-        <div class="col-sm lesson">
-          <% section.lessons.rank(:row_order).each do |lesson| %>
-          <li>
-            <%=link_to lesson_path(lesson),
-            style: 'color: white;' do %>
-            <b><%=lesson.title %></b>
-            -
-            <%=lesson.subtitle%>
+  <div class="container-fluid">
+    <div class="row section justify-content-center">
+      <% @course.sections.each do |section| %>
+        <div class="row col-sm-4 booyah-box">
+          <div class="col-sm">
+            <h3>
+              <%=section.title%>
+            </h3><hr>
+            <h6>
+              (Section <%= section.row_order_rank %>)
+            </h6>
+          </div>
+          <ul class="col-sm lesson">
+            <% section.lessons.rank(:row_order).each do |lesson| %>
+            <li>
+              <%=link_to lesson_path(lesson),
+              style: 'color: white;' do %>
+              <b><%=lesson.title %></b>
+              -
+              <%=lesson.subtitle%>
+              <% end %>
+            </li>
             <% end %>
-          </li>
-          <% end %>
+          </ul>
         </div>
-      </div>
-      </div>
-      <br /><br />
-    <% end %>
+      <% end %><br /><br />
+    </div>
   </div>
 </div>
 
