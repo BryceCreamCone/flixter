@@ -9,11 +9,21 @@
           data: { lesson: { row_order_position: ui.item.index() } }
         })
       }
+    });
+    $('.section').sortable({
+      update: function(event, ui) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { section: { row_order_position: ui.item.index() } }
+        })
+      }
     })
   });
 </script>
 <br />
-<div class="booyah-box col-10 offset-1">
+<div class="booyah-box col-10">
   <h1 class="text-center"><%= current_course.title %></h1><br />
   <%#= image_tag @course.image.url, class: 'img-fluid'%>
 
@@ -30,21 +40,22 @@
   new_instructor_course_section_path(current_course),
   class: 'btn btn-primary btn-lg'%><br /><br />
   </div>
-  <div class="row container col-12">
-    <% current_course.sections.each do |section| %>
-      <div class="section col-sm">
-        <div class="row booyah-box">
+  <div class="container-fluid">
+    <div class="row section justify-content-center">
+      <% current_course.sections.rank(:row_order).each do |section| %>
+        <div class="row col-sm-4 booyah-box" 
+        data-update-url=<%= instructor_section_path(section) %>>
           <div class="col-sm">
             <h3>
               <%=section.title%>
             </h3><hr>
             <h6>
-              (Section <%= section.id %>)
+              (Section <%= section.row_order_rank %>)
             </h6>
             <%=link_to 'New Lesson',
             new_instructor_section_lesson_path(section),
             class: 'btn btn-primary btn-sm',
-            style: 'height: 30px;'%>
+            style: 'height: 30px; margin: 5px;'%>
           </div>
           <ul class="col-sm lesson">
             <% section.lessons.rank(:row_order).each do |lesson| %>
@@ -59,7 +70,7 @@
             <% end %>
           </ul>
         </div>
-      </div><br /><br />
-    <% end %><br /><br />
+      <% end %><br /><br />
+    </div>
   </div>
 </div>

@@ -13,5 +13,6 @@ Rails.application.routes.draw do
       resources :lessons, only: [:new, :create]
     end
     resources :lessons, only: [:update]
+    resources :sections, only: [:update]
   end
 end
