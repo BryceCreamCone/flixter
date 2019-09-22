@@ -4,6 +4,7 @@
  @import "font-awesome";
  @import "static_pages";
  @import "courses";
+ @import "dashboards";
 
 html, body {
   height: 100%;
@@ -12,6 +13,9 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  background: image_url('connectwork.png');
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
 
 #flex-content-container {

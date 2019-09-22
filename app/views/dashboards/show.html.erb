@@ -1,9 +1,61 @@
 <br />
-<div class="booyah-box">
+<div class="booyah-box col-10 offset-1">
   <h1>What I'm Learning</h1>
-  <% current_user.enrolled_courses.each do |course| %>
-    <h3 class="text-center">
-      <%= link_to course.title, course_path(course) %>
-    </h3>
-  <% end %>
+  <hr class="col-8 offset-2"
+  style="height:2px;border:none;color:#FFF;background-color:#FFF;" />
+  <br />
+  <div class="row justify-content-center">
+    <% current_user.enrolled_courses.each do |course| %>
+      <div class="row col-sm-4 booyah-box-black">
+        <div class="col-12 text-center image">
+          IMAGE
+          <%#= image_tag course.image, class: 'img-fluid' %> 
+        </div>
+        <div class="col-sm">
+          <h3 class="text-center">
+            <%= link_to course.title, course_path(course), style: 'color: white;' %>
+          </h3><hr style="color:#FFF;background-color:#FFF;"><br />
+          <p class="text-center">
+            <%= course.description %>
+          </p>
+        </div>
+        <div class="col-sm text-center">
+          <%= link_to "More Info...", course_path(course), class: 'btn btn-lg btn-primary'%>
+        </div>
+        <hr class="col-8 offset-2">
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="booyah-box col-10 offset-1">
+  <h1>What I'm Teaching</h1>
+  <hr class="col-8 offset-2"
+  style="height:2px;border:none;color:#FFF;background-color:#FFF;" />
+  <br />
+  <div class="row justify-content-center">
+    <% current_user.courses.each do |course| %>
+      <div class="row col-sm-4 booyah-box-black">
+        <div class="col-12 text-center image">
+          IMAGE
+          <%#= image_tag course.image, class: 'img-fluid' %>
+        </div>
+        <div class="col-sm">
+          <h3 class="text-center">
+            <%= link_to course.title,
+            course_path(course),
+            style: 'color: white;' %>
+          </h3><hr style="color:#FFF;background-color:#FFF;"><br />
+          <p class="text-center">
+            <%= course.description %>
+          </p>
+        </div>
+        <div class="col-sm text-center">
+          <%= link_to "More Info...",
+          course_path(course),
+          class: 'btn btn-lg btn-primary'%>
+        </div>
+        <hr class="col-8 offset-2">
+      </div>
+    <% end %>
+  </div>
 </div>
