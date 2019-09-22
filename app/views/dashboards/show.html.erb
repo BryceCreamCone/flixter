@@ -13,14 +13,18 @@
         </div>
         <div class="col-sm">
           <h3 class="text-center">
-            <%= link_to course.title, course_path(course), style: 'color: white;' %>
+            <%= link_to course.title,
+            course_path(course),
+            style: 'color: white;' %>
           </h3><hr style="color:#FFF;background-color:#FFF;"><br />
           <p class="text-center">
             <%= course.description %>
           </p>
         </div>
         <div class="col-sm text-center">
-          <%= link_to "More Info...", course_path(course), class: 'btn btn-lg btn-primary'%>
+          <%= link_to "More Info...",
+          course_path(course),
+          class: 'btn btn-lg btn-primary'%>
         </div>
         <hr class="col-8 offset-2">
       </div>
@@ -50,9 +54,15 @@
           </p>
         </div>
         <div class="col-sm text-center">
-          <%= link_to "More Info...",
+          <%= link_to "Preview As Student",
           course_path(course),
-          class: 'btn btn-lg btn-primary'%>
+          class: 'btn btn-lg btn-warning',
+          style: 'margin:5px;text-shadow:none;'%>
+          <br />
+          <%= link_to "Administer",
+          instructor_course_path(course),
+          class: 'btn btn-lg btn-danger',
+          style: 'margin:5px;'%>
         </div>
         <hr class="col-8 offset-2">
       </div>
