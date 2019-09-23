@@ -2,6 +2,7 @@
  @import "jquery-ui/core.css";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+ @import "hover";
  @import "static_pages";
  @import "courses";
  @import "dashboards";
@@ -56,6 +57,22 @@ h1, h2, h3, h4, h5, h6, .navbar {
 .footer-sticky {
   flex-shrink: 0;
   background-color: black;
+  color: white;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 10px 0px;
+  margin-top: 30px;
+  font-weight: 100;
+  div.col-12.col-sm-3 {
+    margin: auto;
+    text-align: center;
+    .social-button {
+      margin: 4px;
+      color: white;
+      :hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .clr {

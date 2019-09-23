@@ -60,9 +60,46 @@
 
   <footer class="footer-sticky">
     <div class="container">
-      <b>Teachers</b>
-      <br />
-      <%= link_to 'Teach A Course', new_instructor_course_path %>   
+      <div class="row">
+        <div class="col-12 col-sm-3">
+          <b>Teachers</b>
+          <br />
+          <%= link_to 'Teach A Course', new_instructor_course_path %>
+          <br />
+          <%= link_to 'My Dashboard', dashboard_path %>
+        </div>
+        <div class="col-12 col-sm-3">
+          <b>About</b>
+          <br />
+          <%= link_to 'Team', '#' %>
+          <br />
+          <%= link_to 'Careers', '#' %>
+          <br />
+          <%= link_to 'Privacy Policy', '#' %>
+        </div>
+        <div class="col-12 col-sm-3">
+          <b>Contact</b>
+          <br />
+          bgust9@gmail.com
+          <br />
+          2911 Marina Drive
+          <br />
+          Middleton, WI 53562
+        </div>
+        <div class="col-12 col-sm-3">
+          <b>Social</b>
+          <br />
+          <br />
+          <%= link_to 'https://github.com/brycecreamcone',
+          class: 'hvr-icon-float' do %>
+            <i class="fab fa-github-square fa-2x social-button hvr-icon"></i>
+          <% end %>
+          <%= link_to 'https://www.linkedin.com/in/bryce-gust-6629484a',
+          class: 'hvr-icon-float' do %>
+            <i class="fab fa-linkedin fa-2x social-button hvr-icon"></i>
+          <% end %>
+        </div>
+      </div>
     </div> 
   </footer>
       
