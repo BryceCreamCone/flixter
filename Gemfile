@@ -22,7 +22,7 @@ gem 'devise', '>= 4.7.1'
 # Photo and Video Uploading
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
-gem 'carrierwave-aws'
+gem 'fog-aws'
 
 
 gem 'figaro'

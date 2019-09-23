@@ -1,12 +1,12 @@
 <br />
-<div class="booyah-box col-10 offset-1">
+<div class="booyah-box col-10 offset-1 container">
   <h1>What I'm Learning</h1>
   <hr class="col-8 offset-2"
   style="height:2px;border:none;color:#FFF;background-color:#FFF;" />
   <br />
   <div class="row justify-content-center">
     <% current_user.enrolled_courses.each do |course| %>
-      <div class="row col-sm-4 booyah-box-black">
+      <div class="row col-sm-3 booyah-box-black">
         <div class="col-12 text-center image">
           IMAGE
           <%#= image_tag course.image, class: 'img-fluid' %> 
@@ -26,7 +26,6 @@
           course_path(course),
           class: 'btn btn-lg btn-primary'%>
         </div>
-        <hr class="col-8 offset-2">
       </div>
     <% end %>
   </div>
@@ -38,7 +37,7 @@
   <br />
   <div class="row justify-content-center">
     <% current_user.courses.each do |course| %>
-      <div class="row col-sm-4 booyah-box-black">
+      <div class="row col-sm-3 booyah-box-black">
         <div class="col-12 text-center image">
           IMAGE
           <%#= image_tag course.image, class: 'img-fluid' %>
@@ -64,7 +63,6 @@
           class: 'btn btn-lg btn-danger',
           style: 'margin:5px;'%>
         </div>
-        <hr class="col-8 offset-2">
       </div>
     <% end %>
   </div>
