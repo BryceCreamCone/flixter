@@ -6,10 +6,10 @@
   <br />
   <div class="row justify-content-center">
     <% @courses.each do |course| %>
-      <div class="row col-sm-3 booyah-box-black">
+      <div class="row col-sm-5 booyah-box-black">
         <div class="col-12 text-center image">
-          IMAGE
-          <%#= image_tag course.image, class: 'img-fluid' %> 
+          <%= image_tag course.image.url,
+          class: 'img-fluid' unless course.image.blank? %>
         </div>
         <div class="col-sm">
           <h3 class="text-center">
