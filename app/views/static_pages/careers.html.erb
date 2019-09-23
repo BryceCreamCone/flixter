@@ -1,11 +1,48 @@
+<script>
+  $(document).ready(function(){
+    var textCopied = navigator.clipboard.writeText("bgust9@gmail.com")
+    textCopied.then(function() {
+      $('.email').datatitle = "Copied!"
+    })
+  });
+</script>
 <br />
 
 <div class="booyah-box col-10">
   <h1>Careers</h1>
-  <p>
-    I'm not currently 'hiring', but if you look like me I would accept volunteer dopplegangers to go to various events in my place so I can spend more time petting dogs.
-
-
-    If you're currently (actually) hiring, then feel free to let me know!
+  <p class="text-center">
+    I'm not currently hiring, but are you? Let me know!
   </p>
+  <div class="contact container">
+    <div class="row">
+      <div class="col-12 col-sm-4 text-center github">
+        <%= link_to 'https://github.com/brycecreamcone' do %>
+          <i class="fab fa-github-square fa-4x social-button"></i>
+        <% end %>
+        <a href="https://github.com/brycecreamcone">
+          <p style="color: white">
+            My Github
+          </p>
+        </a>
+      </div>
+      <div class="col-12 col-sm-4 text-center">
+        <%= link_to 'https://www.linkedin.com/in/bryce-gust-6629484a'  do %>
+          <i class="fab fa-linkedin fa-4x social-button"></i>
+        <% end %>
+        <a href="https://www.linkedin.com/in/bryce-gust-6629484a">
+          <p style="color: white">
+            My Linkedin
+          </p>
+        </a>
+      </div>
+      <div class="col-12 col-sm-4 text-center">
+        <a>
+          <i class="far fa-envelope fa-4x social-button"></i>
+        </a>
+        <p>
+          bgust9@gmail.com
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

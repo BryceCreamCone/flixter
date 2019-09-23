@@ -10,6 +10,7 @@ gem 'jquery-ui-rails'
 gem 'bootstrap', '>= 4.3.1'
 gem 'font-awesome-sass', '~> 5.11.1'
 gem 'hover-rails'
+gem 'mini_racer'
 
 
 # Simple form

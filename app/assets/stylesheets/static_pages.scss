@@ -52,3 +52,16 @@ body {
   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
+
+.social-button {
+  color: white;
+}
+
+div.contact.container {
+  a {
+    text-decoration: none;
+    p {
+      text-decoration: none;
+    }
+  }
+}
