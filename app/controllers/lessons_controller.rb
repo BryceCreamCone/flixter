@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    unless current_user.enrolled_in?(current_course)
+    unless authorized
       redirect_to course_path(current_course),
       alert: 'You have not purchased this course'
     end
@@ -20,5 +20,8 @@ class LessonsController < ApplicationController
     @current_course ||= Course.find_by(id: current_section.course_id)
   end
 
+  def authorized
+    current_user.enrolled_in?(current_course) or (current_user.id == current_course.user_id)
+  end
   
 end

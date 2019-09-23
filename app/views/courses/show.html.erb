@@ -13,20 +13,24 @@
   <h1><%= @course.title %></h1>
   <hr class="col-8"
   style="height:2px;border:none;color:#FFF;background-color:#FFF;" />
+  <div class="text-center">
+    <div class="booyah-box-black col-8" style="margin:auto;">
+      <%= image_tag @course.image.url,
+      class: 'img-fluid' unless @course.image.blank? %>
+    </div>
+  </div>
   <div class="row justify-content-center">
-    <%= image_tag @course.image.url,
-    class: 'img-fluid' unless @course.image.blank? %>
     <div class="col-sm booyah-box-black">
       <div class="col-md text-center">
         <span class="badge badge-default">
           <%= number_to_currency @course.cost %>
         </span>
-      </div>
+      </div><br />
       <div class="col-md text-center">
-        <% if current_user && current_user == @course.user %><br /><br />
+        <% if current_user && current_user == @course.user %>
           <%=link_to 'Administer',
           instructor_course_path(@course),
-          class: 'btn btn-danger btn-large'%>
+          class: 'btn btn-danger btn-large'%><br />
         <% end %>
       </div>
       <div class="col-md text-center">
@@ -60,7 +64,8 @@
             <h3>
               <span class="fa fa-ellipsis-v float-left"></span>
               <%=section.title%>
-            </h3><hr>
+            </h3>
+            <hr style="background-color:white;">
             <h6>
               (Section <%= section.row_order_rank %>)
             </h6>
@@ -86,7 +91,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content booyah-box">
+    <div class="modal-content booyah-box-black">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Please Enter Your Payment Method</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -100,7 +105,8 @@
             <div id="card-element"></div>
             <div id="card-errors" role="alert"></div>
           </div>
-          <button>Submit Payment</button>
+          <br /><br />
+          <button class="btn btn-primary text-center">Submit Payment</button>
         </form>
             <script type="text/javascript">
             // Create a Stripe client
