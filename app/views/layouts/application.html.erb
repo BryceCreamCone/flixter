@@ -17,7 +17,11 @@
   <body>
   <div id="flex-content-container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand"><%= link_to 'Flixter', root_path %></a>
+      <a class="navbar-brand">
+        <%= link_to root_path, class: 'hvr-icon-bob' do %>
+          <i class="fas fa-fire fa-3x hvr-icon"></i>
+        <% end %>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent"
       aria-expanded="fase" aria-label="Toggle navigation">
@@ -27,23 +31,38 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-link">
-            <%= link_to 'All Courses', courses_path, class: 'nav-link' %>
+            <%= link_to 'All Courses', courses_path,
+            class: 'nav-link btn btn-primary',
+            style: 'background-color:#4c7725;color:#FFE;
+            border:1px solid black;border-radius:20px;' %>
           </li>
         </ul>
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'My Dashboard <|', dashboard_path, class: 'nav-link' %>
+              <%= link_to 'My Dashboard', dashboard_path,
+              class: 'nav-link',
+              style: 'background-color:#4c7725;color:#FFE;
+              border:1px solid black;border-radius:20px;' %>
             </li>
             <li class="nav-item">
-              <%= link_to '|> Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              <%= link_to 'Sign Out', destroy_user_session_path,
+              method: :delete, class: 'nav-link',
+              style: 'background-color:#4c7725;color:#FFE;
+              border:1px solid black;border-radius:20px;' %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to 'Sign In <|', new_user_session_path, class: 'nav-link' %>
+              <%= link_to 'Sign In', new_user_session_path,
+              class: 'nav-link',
+              style: 'background-color:#4c7725;color:#FFE;
+              border:1px solid black;border-radius:20px;' %>
             </li>
             <li class="nav-item">
-              <%= link_to '|> Sign Up', new_user_registration_path, class: 'nav-link' %>
+              <%= link_to 'Sign Up', new_user_registration_path,
+              class: 'nav-link',
+              style: 'background-color:#4c7725;color:#FFE;
+              border:1px solid black;border-radius:20px;' %>
             </li>
           <% end %>
         </ul>      
