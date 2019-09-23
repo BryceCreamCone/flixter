@@ -13,46 +13,57 @@
   <h1><%= @course.title %></h1>
   <hr class="col-8"
   style="height:2px;border:none;color:#FFF;background-color:#FFF;" />
-  <div class="text-center">
-    <div class="booyah-box-black col-8" style="margin:auto;">
-      <%= image_tag @course.image.url,
-      class: 'img-fluid' unless @course.image.blank? %>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-sm booyah-box-black">
-      <div class="col-md text-center">
-        <span class="badge badge-default">
-          <%= number_to_currency @course.cost %>
-        </span>
-      </div><br />
-      <div class="col-md text-center">
-        <% if current_user && current_user == @course.user %>
-          <%=link_to 'Administer',
-          instructor_course_path(@course),
-          class: 'btn btn-danger btn-large'%><br />
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
+        <% unless @course.image.blank? %>
+          <%= image_tag @course.image.url,
+          class: 'img-fluid',
+          style: 'border-radius:10px;border:3px solid #EEE' %>
         <% end %>
       </div>
-      <div class="col-md text-center">
-        <% if not user_signed_in? %>
-          <%= link_to 'Sign In to Enroll',
-          user_session_path(current_user),
-          class: 'btn btn-primary',
-          method: :post %>
-        <% elsif current_user && current_user.enrolled_in?(@course) %>
-          <h3 class="badge badge-info">You Have Enrolled</h3>
-        <% else %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Enroll
-          </button>
-        <% end %>
-      </div>
-    </div><br /><br />
+      <div class="col-4">
+        <div class="align-self-start"
+        style="padding-left:100px;padding-right:100px;">
+          <div class="booyah-box-black">
+            <div class="col-md text-center">
+              <span class="badge badge-default">
+                <%= number_to_currency @course.cost %>
+              </span>
+            </div><br />
+            <div class="col-md text-center">
+              <% if current_user && current_user == @course.user %>
+                <%=link_to 'Administer',
+                instructor_course_path(@course),
+                class: 'btn btn-danger btn-large'%><br />
+              <% end %>
+            </div>
+            <div class="col-md text-center">
+              <% if not user_signed_in? %>
+                <%= link_to 'Sign In to Enroll',
+                user_session_path(current_user),
+                class: 'btn btn-primary',
+                method: :post %>
+              <% elsif current_user && current_user.enrolled_in?(@course) %>
+                <h3 class="badge badge-info">You Have Enrolled</h3>
+              <% else %>
+                <button type="button" class="btn btn-primary"
+                data-toggle="modal" data-target="#exampleModalCenter">
+                  Enroll
+                </button>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
-    <div class="col-sm-8 booyah-box-black">
-      <p class="text-center">
-        <%= @course.description %>
-      </p>
+        <div class="align-self-center">
+          <div class="booyah-box-black">
+            <p class="text-center">
+              <%= @course.description %>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -89,17 +100,21 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content booyah-box-black">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Please Enter Your Payment Method</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Please Enter Your Payment Method
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="/courses/<%=@course.id%>/enrollments" method="post" id="payment-form" data-remote="true">
+        <form action="/courses/<%=@course.id%>/enrollments"
+        method="post" id="payment-form" data-remote="true">
             <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
           <div class="form-row">
             <div id="card-element"></div>
