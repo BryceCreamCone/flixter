@@ -16,7 +16,7 @@ gem 'hover-rails'
 gem 'simple_form'
 
 # Devise for User Authenication
-gem 'devise'
+gem 'devise', '>= 4.7.1'
 
 # Photo and Video Uploading
 gem 'carrierwave', '~> 2.0'
