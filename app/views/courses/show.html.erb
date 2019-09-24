@@ -14,15 +14,15 @@
   <hr class="col-8"
   style="height:2px;border:none;color:#FFF;background-color:#FFF;" />
   <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row">
       <% unless @course.image.blank? %>
-      <div class="col-8 text-center">
+      <div class="col-8-lg col-4-sm text-center">
         <%= image_tag @course.image.url,
         class: 'img-fluid',
-        style: 'border-radius:10px;border:3px solid #EEE' %>
+        style: 'border-radius:10px;border:3px solid #EEE;background-size:cover;' %>
       </div>
       <% end %>
-      <div class="col-4">
+      <div class="col-4-lg col-sm">
         <div class="align-self-start"
         style="padding-left:100px;padding-right:100px;">
           <div class="booyah-box-black">
