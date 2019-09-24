@@ -16,6 +16,10 @@ class Instructor::CoursesController < ApplicationController
     end
   end
 
+  def update
+    current_course.update_attributes(course_params)
+  end
+
   def show
     @section = Section.new
     @lesson = Lesson.new

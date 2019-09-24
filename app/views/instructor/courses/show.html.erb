@@ -23,7 +23,11 @@
           data: { section: { row_order_position: ui.item.index() } }
         })
       }
-    })
+    });
+    $('.photoSubmit').click(function() {
+      $('#newPhotoModal').modal("hide");
+      setTimeout("location.reload(true)", 3000);
+    });
   });
 </script>
 <br />
@@ -32,9 +36,10 @@
   <hr class="col-8"
   style="height:2px;border:none;color:#FFF;background-color:#FFF;" />
 
-  <%=link_to 'Add a Course Image',
-  '#',
-  class: 'btn btn-primary'%>
+  <button type="button" class="btn btn-primary"
+  data-toggle="modal" data-target="#newPhotoModal">
+    Add/Edit Course Photo
+  </button>
 
   <%=link_to 'Preview As Student',
   course_path(current_course),
@@ -93,6 +98,29 @@
           <% end %>
         </div>
       <% end %><br /><br />
+    </div>
+  </div>
+</div>
+
+<!-- New Photo Modal -->
+<div class="modal fade" id="newPhotoModal" tabindex="-1" role="dialog"
+aria-labelledby="newPhotoModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content booyah-box">
+      <div class="modal-header">
+        <h4 class="modal-title" id="newPhotoModalLabel">Select a Photo</h4>
+      </div>
+      <%= simple_form_for current_course,
+      url: instructor_course_path(current_course) do |f| %>
+        <div class="modal-body">
+          <%= f.input :image %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary"
+          data-dismiss="modal">Close</button>
+          <%= f.submit "Add Photo", class: "btn btn-primary photoSubmit"%>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
