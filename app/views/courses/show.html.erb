@@ -46,6 +46,8 @@
                 method: :post %>
               <% elsif current_user && current_user.enrolled_in?(@course) %>
                 <h3 class="badge badge-info">You Have Enrolled</h3>
+              <% elsif @course.is_free %>
+                <h3 class="badge badge-info">It's Free! (Get Started Below)</h3>
               <% else %>
                 <button type="button" class="btn btn-primary"
                 data-toggle="modal" data-target="#exampleModalCenter">
