@@ -1,12 +1,14 @@
-<div class="container">
-  <% flash.each do |key, value| %>
-    <div class="<%= flash_class(key) %>">
-      <%= value %>
-    </div>
-  <% end %>
+<% unless alert.present? || notice.present? %>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>
 
-  <%= yield %>
-</div>
+    <%= yield %>
+  </div>
+<% end %>
 
 <br />
 <div class="booyah-box col-10">
