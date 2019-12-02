@@ -1,6 +1,6 @@
 class EnrollmentsController < ApplicationController
   before_action :authenticate_user!
-  add_flash_types :success, :warning
+# add_flash_types :success, :warning
 
   def create
     begin

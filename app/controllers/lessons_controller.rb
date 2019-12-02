@@ -21,7 +21,9 @@ class LessonsController < ApplicationController
   end
 
   def authorized
-    current_user.enrolled_in?(current_course) or (current_user.id == current_course.user_id)
+    current_user.enrolled_in?(current_course) or 
+    (current_user.id == current_course.user_id) or 
+    current_course.is_free
   end
   
 end
