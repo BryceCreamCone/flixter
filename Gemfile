@@ -14,7 +14,7 @@ gem 'mini_racer'
 
 
 # Simple form
-gem 'simple_form'
+gem 'simple_form', '~> 5.0'
 
 # Devise for User Authenication
 gem 'devise', '>= 4.7.1'
