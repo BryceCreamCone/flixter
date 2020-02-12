@@ -1,4 +1,4 @@
-# README
+# Flixter
 
 There are currently two actual 'courses' uploaded. There is also a test course.
 
