@@ -20,7 +20,7 @@ gem 'simple_form', '~> 5.0'
 gem 'devise', '>= 4.7.1'
 
 # Photo and Video Uploading
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'mini_magick'
 gem 'fog-aws'
 
